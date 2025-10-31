@@ -43,8 +43,7 @@ def newton(eps):
 
 if __name__ == "__main__":
     a = 1
-    b=6
-    x = 5
+    b=2
     eps = 10**(-6)
     print(f"Метод половинного деления: {MPD(a,b,eps)}")
     print(f"Метод хорд: {hord(a,b,eps)}")

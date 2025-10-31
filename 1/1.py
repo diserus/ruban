@@ -24,9 +24,12 @@ def gauss(matrix):
             if abs(matrix[j][i]) > abs(mainn): 
                 mainn = matrix[j][i] 
                 str_main = j 
+        print (f"Меняем {i} строку на {str_main}")
         matrix[i],matrix[str_main] = matrix[str_main],matrix[i]
+
         print(f"Ведущий элемент: {mainn}")
-        for j in range(i + 1, n):
+
+        for j in range(i+1, n):
             a = matrix[j][i] / mainn
             for k in range(i, n + 1):  
                 matrix[j][k] -= a * matrix[i][k]
