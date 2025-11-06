@@ -11,6 +11,8 @@ def lagrange(x,y,point):
                 znam *=x[i]-x[j] 
         result+=y[i] *(chisl/znam)
     return result
+
+
 def eitken(x,y,point):
     n = len(x)
     P = [[0 for _ in range(n)] for _ in range(n)]
@@ -21,6 +23,11 @@ def eitken(x,y,point):
         for j in range(n-i-1):
             P[i][j] = (P[i-1][j]*(point-x[j+i+1])-P[i-1][j+1]*(point-x[j])) / (x[j]-x[j+i+1])
     result=P[n-2][0]
+    print("\nТаблица Эйткена:\n")
+    for i in range(n-1):
+        for j in range(n-1):
+            print(f"{P[i][j]:.6g}", end="\t")
+        print()
     return result
 def pogreshnost(point):
     m4 = 15/16
@@ -31,11 +38,11 @@ def pogreshnost(point):
     return eps_real
 
 if __name__=='__main__':
-    x = [1, 2, 3, 4]
+    x = [1,2, 3, 4]
     y = [1, 1.4142, 1.7321, 2]
     point = 2.56
     interpol_lagrange = lagrange(x, y, point)
-    print ("\n==== Функция y = sqrt(x) ====\n")
+    print ("\nФункция y = sqrt(x)\n")
     print(f"Точное значение функции для x = {point} | y = {sqrt(point)}\n\n")
     print(f"\nИнтерполяция по формуле Лагранжа для x = {point}")
     print(f"Pn({point}) = {interpol_lagrange}")
